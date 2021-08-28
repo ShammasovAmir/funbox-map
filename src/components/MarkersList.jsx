@@ -126,10 +126,17 @@ class MarkersList extends React.PureComponent {
 
         <MarkerList>
           {this.props.markers.map((marker, index) => (
-            <Marker onDragOver={() => this.onDragOver(index)} key={index}>
+            <Marker
+              onDragOver={() => this.onDragOver(index)}
+              key={index}
+              id="singleMarker"
+            >
               <div draggable onDragStart={(e) => this.onDragStart(e, index)}>
                 {marker.name}
-                <DeleteBtn onClick={() => this.props.deleteMarker(marker)}>
+                <DeleteBtn
+                  onClick={() => this.props.deleteMarker(marker)}
+                  id="closeBtn"
+                >
                   ✖
                 </DeleteBtn>
               </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import GlobalStyle from './styles/GlobalStyle'
 import _ from 'lodash'
@@ -22,7 +22,7 @@ class App extends React.PureComponent {
 
   createMarker = (e) => {
     e.preventDefault()
-    // Check for empty or spaces
+    // Check if empty or consists of only spaces
     if (/^ *$/.test(this.state.inputValue))
       alert('Название точки не может быть пустым')
     else {
@@ -71,7 +71,7 @@ class App extends React.PureComponent {
 
     let polyline = new window.google.maps.Polyline({
       path: this.getPolylineCoordinates(),
-      geodesic: false, // should polyline curve along with Earths curvature
+      geodesic: false, // So that polyline doesn't curve along with Earths curvature
       strokeColor: '#FF0000',
       strokeOpacity: 1.0,
       strokeWeight: 2,
